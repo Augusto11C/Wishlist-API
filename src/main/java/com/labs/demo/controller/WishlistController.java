@@ -50,7 +50,7 @@ public class WishlistController {
     }
 
 
-    @GetMapping("/getWishlist/{loginName}")
+    @GetMapping("{loginName}")
     public ResponseEntity<WishlistResponse> getWishlist(@PathVariable String loginName) {
 
         final List<String> wishlistOptional = wishlistService.getWishlist(loginName);

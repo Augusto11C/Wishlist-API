@@ -50,14 +50,14 @@ public class WishlistService {
 
         if (wishlist.size() < 20 && Objects.nonNull(wishlistDTO.getItemName())
                 && !wishlistDTO.getItemName().equals("") && !wishlistDTO.getItemName().equals(" ")) {
-            wishlist.add(wishlistDTO.getItemName().toUpperCase());
+            user.getWishlist().add(wishlistDTO.getItemName().toUpperCase());
         }
 
         userRepository.save(user);
 
         LOGGER.info("Event 'addToWishlist' successfully finished: item added to wishlist for user={}", wishlistDTO.getLoginName());
 
-        return wishlist;
+        return user.getWishlist();
     }
 
     public List<String> removeFromWishlist(final WishlistDTO wishlistDTO) {
